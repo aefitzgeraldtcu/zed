@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Which houseplant are you?</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+  <section id="start" class="card hero">
+    <div class="big" aria-hidden="true">🪴</div>
+    <h1>Which houseplant are you?</h1>
+    <p>Five questions, one leafy verdict!</p>
+    <button class="btn" id="startBtn">Find my plant</button>
+  </section>
+
+  <section id="quiz" class="card" hidden>
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="bar"></i></div>
+    <div class="count" id="count"></div>
+    <h2 id="question" tabindex="-1"></h2>
+    <div class="options" id="options"></div>
+    <div class="nav"><button class="link" id="backBtn">Back</button></div>
+  </section>
+
+  <section id="result" class="card result" hidden aria-live="polite">
+    <div class="emoji" id="rEmoji" aria-hidden="true"></div>
+    <h2 id="rTitle" tabindex="-1"></h2>
+    <p class="tag" id="rTag"></p>
+    <p id="rText"></p>
+    <div class="bars" id="bars"></div>
+    <div class="row">
+      <button class="btn" id="retryBtn">Take it again</button>
+      <button class="btn alt" id="copyBtn">Copy my result</button>
+    </div>
+  </section>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
