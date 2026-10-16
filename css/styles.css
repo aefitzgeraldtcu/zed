@@ -1,49 +1,314 @@
-:root{
-  --bg:#f4f1ff; --card:#ffffff; --ink:#1b1530; --muted:#5d5678;
-  --pink:#ff3d7f; --yellow:#ffd23f; --line:#1b1530;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&display=swap');
+
+/* ==========================
+   1. RESET
+   ========================== */
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){ --bg:#14102a; --card:#211b3d; --ink:#f5f1ff; --muted:#b4acd2; --line:#f5f1ff; color-scheme:dark; }
+
+/* ==========================
+   2. DESIGN TOKENS
+   ========================== */
+:root {
+   /* Color */
+   --color-bg: #f4f1ff;
+   --color-surface: #ffffff;
+   --color-text: #1b1530;
+   --color-muted: #5d5678;
+   --color-accent: #ff3d7f;
+   --color-highlight: #ffd23f;
+   --color-line: #1b1530;
+
+   /* Spacing */
+   --space-sm: 0.5rem;
+   --space-md: 1rem;
+   --space-lg: 1.5rem;
+   --space-xl: 2rem;
+
+   /* Typography */
+   --text-base: 1rem;
+   --text-h2: clamp(1.5rem, 5vw, 2rem);
+   --text-h1: clamp(2.2rem, 8vw, 3.4rem);
+   --leading-body: 1.4;
+   --leading-heading: 1.05;
+   --font-stack: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+   /* Layout */
+   --page-width: 40rem;
+   --border: 3px solid var(--color-line);
+   --shadow-card: 6px 6px 0 var(--color-line);
+   --shadow-btn: 4px 4px 0 var(--color-line);
+   --radius-md: 12px;
+   --radius-lg: 18px;
 }
-:root[data-theme="dark"]{ --bg:#14102a; --card:#211b3d; --ink:#f5f1ff; --muted:#b4acd2; --line:#f5f1ff; color-scheme:dark; }
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:500;line-height:1.4;min-height:100vh}
-main{max-width:640px;margin:0 auto;padding:24px 16px 48px}
-h1,h2{font-weight:800;line-height:1.05;margin:0}
-h1{font-size:clamp(2.2rem,8vw,3.4rem);letter-spacing:-.02em}
-h2{font-size:clamp(1.5rem,5vw,2rem);letter-spacing:-.01em}
-.card{background:var(--card);border:3px solid var(--line);border-radius:18px;box-shadow:6px 6px 0 var(--line);padding:24px}
-.hero{text-align:left}
-.hero .big{font-size:4rem;line-height:1}
-.hero p{color:var(--muted);font-size:1.1rem;margin:12px 0 24px}
-button{font:inherit;color:inherit;cursor:pointer}
-.btn{display:inline-block;background:var(--pink);color:#fff;font-weight:800;font-size:1.1rem;border:3px solid var(--line);border-radius:12px;padding:12px 22px;box-shadow:4px 4px 0 var(--line);transition:transform .08s,box-shadow .08s}
-.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--line)}
-.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--line)}
-.btn.alt{background:var(--yellow);color:#1b1530}
-:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
-.progress{height:14px;border:3px solid var(--line);border-radius:99px;background:var(--card);overflow:hidden;margin-bottom:8px}
-.progress i{display:block;height:100%;width:0;background:var(--yellow);transition:width .3s}
-.count{color:var(--muted);font-size:.95rem;margin-bottom:16px}
-.options{display:grid;gap:12px;margin-top:20px}
-.opt{text-align:left;background:var(--bg);border:3px solid var(--line);border-radius:12px;padding:14px 16px;font-size:1.05rem;transition:background .1s,transform .1s}
-.opt:hover{background:var(--yellow);color:#1b1530;transform:translateX(4px)}
-.opt.picked{background:var(--pink);color:#fff}
-.nav{margin-top:18px}
-.link{background:none;border:0;color:var(--muted);text-decoration:underline;padding:4px 0;font-size:.95rem}
-.result .emoji{font-size:5rem;line-height:1}
-.result h2{margin:10px 0 4px}
-.tag{color:var(--pink);font-weight:800;margin:0 0 12px}
-.result p{margin:0 0 14px}
-.bars{margin:20px 0 24px;display:grid;gap:10px}
-.bar{display:grid;grid-template-columns:110px 1fr 42px;gap:10px;align-items:center;font-size:.95rem}
-.bar .track{height:12px;border:2px solid var(--line);border-radius:99px;overflow:hidden;background:var(--bg)}
-.bar .fill{height:100%;background:var(--pink);width:0;transition:width .6s}
-.bar.win .fill{background:var(--yellow)}
-.bar span:last-child{text-align:right}
-.row{display:flex;gap:12px;flex-wrap:wrap}
-[hidden]{display:none!important}
-@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+/* Dark mode: same tokens, new values */
+@media (prefers-color-scheme: dark) {
+   :root {
+      --color-bg: #14102a;
+      --color-surface: #211b3d;
+      --color-text: #f5f1ff;
+      --color-muted: #b4acd2;
+      --color-line: #f5f1ff;
+      color-scheme: dark;
+   }
+}
+
+/* ==========================
+   3. BASE ELEMENT STYLES
+   ========================== */
+body {
+   background-color: var(--color-bg);
+   color: var(--color-text);
+   font-family: var(--font-stack);
+   font-size: var(--text-base);
+   font-weight: 500;
+   line-height: var(--leading-body);
+   min-height: 100vh;
+}
+
+h1,
+h2 {
+   font-weight: 800;
+   line-height: var(--leading-heading);
+}
+
+h1 { font-size: var(--text-h1); letter-spacing: -0.02em; }
+h2 { font-size: var(--text-h2); letter-spacing: -0.01em; }
+
+p { margin-bottom: var(--space-md); }
+p:last-child { margin-bottom: 0; }
+
+button {
+   font: inherit;
+   color: inherit;
+   cursor: pointer;
+}
+
+:focus-visible {
+   outline: 3px solid var(--color-accent);
+   outline-offset: 3px;
+}
+
+[hidden] { display: none !important; }
+
+/* ==========================
+   4. LAYOUT
+   ========================== */
+html {
+   padding-top: env(safe-area-inset-top, 0px);
+   padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+main {
+   max-width: var(--page-width);
+   margin: 0 auto;
+   padding: var(--space-lg) var(--space-md) 3rem;
+}
+
+.row {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.75rem;
+}
+
+/* ==========================
+   5. HEADER
+   (The quiz has no header. The start screen's hero text lives here.)
+   ========================== */
+.hero .big {
+   font-size: 4rem;
+   line-height: 1;
+}
+
+.hero p {
+   color: var(--color-muted);
+   font-size: 1.1rem;
+   margin: 0.75rem 0 var(--space-lg);
+}
+
+/* ==========================
+   6. SECTIONS
+   (The three screens: start, quiz, result)
+   ========================== */
+.card {
+   background-color: var(--color-surface);
+   border: var(--border);
+   border-radius: var(--radius-lg);
+   box-shadow: var(--shadow-card);
+   padding: var(--space-lg);
+}
+
+/* ==========================
+   7. FORMS
+   (The answer choices act as the quiz's inputs)
+   ========================== */
+.options {
+   display: grid;
+   gap: 0.75rem;
+   margin-top: 1.25rem;
+}
+
+.opt {
+   text-align: left;
+   background-color: var(--color-bg);
+   border: var(--border);
+   border-radius: var(--radius-md);
+   padding: 0.875rem var(--space-md);
+   font-size: 1.05rem;
+   transition: background-color 0.1s, transform 0.1s;
+}
+
+.opt:hover {
+   background-color: var(--color-highlight);
+   color: #1b1530;
+   transform: translateX(4px);
+}
+
+.opt.picked {
+   background-color: var(--color-accent);
+   color: #ffffff;
+}
+
+/* ==========================
+   8. BUTTONS
+   ========================== */
+.btn {
+   display: inline-block;
+   background-color: var(--color-accent);
+   color: #ffffff;
+   font-weight: 800;
+   font-size: 1.1rem;
+   border: var(--border);
+   border-radius: var(--radius-md);
+   padding: 0.75rem 1.375rem;
+   box-shadow: var(--shadow-btn);
+   transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.btn:hover {
+   transform: translate(2px, 2px);
+   box-shadow: 2px 2px 0 var(--color-line);
+}
+
+.btn:active {
+   transform: translate(4px, 4px);
+   box-shadow: 0 0 0 var(--color-line);
+}
+
+.btn.alt {
+   background-color: var(--color-highlight);
+   color: #1b1530;
+}
+
+.link {
+   background: none;
+   border: 0;
+   color: var(--color-muted);
+   text-decoration: underline;
+   padding: 0.25rem 0;
+   font-size: 0.95rem;
+}
+
+/* ==========================
+   9. PROGRESS
+   (Takes the place of the Search section: progress bar, question count, back link)
+   ========================== */
+.progress {
+   height: 14px;
+   border: var(--border);
+   border-radius: 99px;
+   background-color: var(--color-surface);
+   overflow: hidden;
+   margin-bottom: var(--space-sm);
+}
+
+.progress i {
+   display: block;
+   height: 100%;
+   width: 0;
+   background-color: var(--color-highlight);
+   transition: width 0.3s;
+}
+
+.count {
+   color: var(--color-muted);
+   font-size: 0.95rem;
+   margin-bottom: var(--space-md);
+}
+
+.nav { margin-top: 1.125rem; }
+
+/* ==========================
+   10. CARDS
+   (Contents of the result card: emoji, title, match bars)
+   ========================== */
+.result .emoji {
+   font-size: 5rem;
+   line-height: 1;
+}
+
+.result h2 { margin: 0.625rem 0 0.25rem; }
+
+.result p { margin: 0 0 0.875rem; }
+
+.tag {
+   color: var(--color-accent);
+   font-weight: 800;
+   margin: 0 0 0.75rem;
+}
+
+.bars {
+   display: grid;
+   gap: 0.625rem;
+   margin: 1.25rem 0 var(--space-lg);
+}
+
+.bar {
+   display: grid;
+   grid-template-columns: 110px 1fr 42px;
+   gap: 0.625rem;
+   align-items: center;
+   font-size: 0.95rem;
+}
+
+.bar span:last-child { text-align: right; }
+
+.bar .track {
+   height: 12px;
+   border: 2px solid var(--color-line);
+   border-radius: 99px;
+   overflow: hidden;
+   background-color: var(--color-bg);
+}
+
+.bar .fill {
+   height: 100%;
+   width: 0;
+   background-color: var(--color-accent);
+   transition: width 0.6s;
+}
+
+.bar.win .fill { background-color: var(--color-highlight); }
+
+/* ==========================
+   11. FOOTER
+   ========================== */
+
+/* ==========================
+   12. RESPONSIVE
+   ========================== */
+@media (max-width: 480px) {
+   .bar {
+      grid-template-columns: 90px 1fr 38px;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   * { transition: none !important; }
+}
