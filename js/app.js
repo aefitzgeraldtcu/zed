@@ -1,4 +1,3 @@
-alert("app.js is loaded");
 const OUTCOMES = {
   cactus:  { emoji:"🌵", title:"Cactus",  tag:"Low maintenance, high attitude.",
              text:"You thrive on independence and a bit of neglect. You have boundaries, a sharp sense of humor, and you bloom exactly when you decide to." },
