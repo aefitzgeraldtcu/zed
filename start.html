@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which Illit Member Are You?</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <dialog id="welcomePopup" class="popup">
+        <img src="images/magicalgirlpop-up.jpeg" alt="A yes/no question asking if you want to be a Magical Girl.">
+        <button class="btn" id="closePopup">YES</button>
+    </dialog>
+
+    <header class="image-banner">
+        <span class="visually-hidden">Banner Image</span>
+    </header>
+
+<main>
+    <a class="home-link" href="index.html">Back to Home</a>
+
+  <section id="start" class="card hero">
+    <div class="big" aria-hidden="true"></div>
+    <h1>Which Illit Member Is Your Favorite?</h1>
+    <p>Get ready to fall in love with your new favorite kpop artist. Answer 5 quick questions to become a GIllit (Illit's fanbase) now!</p>
+    <button class="btn" id="startBtn">FIND MY BIAS</button>
+  </section>
+
+  <section id="quiz" class="card" hidden>
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="bar"></i></div>
+    <div class="count" id="count"></div>
+    <h2 id="question" tabindex="-1"></h2>
+    <div class="options" id="options"></div>
+    <div class="nav"><button class="link" id="backBtn">Back</button></div>
+  </section>
+
+  <section id="result" class="card result" hidden aria-live="polite">
+    <div class="emoji" id="rEmoji" aria-hidden="true"></div>
+    <h2 id="rTitle" tabindex="-1"></h2>
+    <p class="tag" id="rTag"></p>
+    <p id="rText"></p>
+    <div class="bars" id="bars"></div>
+    <div class="row">
+      <button class="btn" id="retryBtn">Take quiz again</button>
+      <button class="btn alt" id="copyBtn">Copy my result</button>
+      <a class="btn" href="index.html">Back to Home</a>
+    </div>
+  </section>
+</main>
+
+<script src="js/popup.js"></script>
+<script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap" rel="stylesheet');
 
 /* ==========================
    1. RESET
@@ -11,18 +11,23 @@
    padding: 0;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 /* ==========================
    2. DESIGN TOKENS
    ========================== */
 :root {
    /* Color */
-   --color-bg: #f4f1ff;
-   --color-surface: #ffffff;
+   --color-bg: #ffe0ea;
+   --color-surface: #dad9d9;
    --color-text: #1b1530;
    --color-muted: #5d5678;
-   --color-accent: #ff3d7f;
-   --color-highlight: #ffd23f;
-   --color-line: #1b1530;
+   --color-accent: #d47192;
+   --color-highlight: #fde9a7;
+   --color-line: #4c4956;
 
    /* Spacing */
    --space-sm: 0.5rem;
@@ -36,27 +41,16 @@
    --text-h1: clamp(2.2rem, 8vw, 3.4rem);
    --leading-body: 1.4;
    --leading-heading: 1.05;
-   --font-stack: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+   --font-stack-h: 'Molle', cursive;
+   --font-stack-b: 'Times New Roman', serif;
 
    /* Layout */
-   --page-width: 40rem;
+   --page-width: 64rem;
    --border: 3px solid var(--color-line);
    --shadow-card: 6px 6px 0 var(--color-line);
    --shadow-btn: 4px 4px 0 var(--color-line);
    --radius-md: 12px;
    --radius-lg: 18px;
-}
-
-/* Dark mode: same tokens, new values */
-@media (prefers-color-scheme: dark) {
-   :root {
-      --color-bg: #14102a;
-      --color-surface: #211b3d;
-      --color-text: #f5f1ff;
-      --color-muted: #b4acd2;
-      --color-line: #f5f1ff;
-      color-scheme: dark;
-   }
 }
 
 /* ==========================
@@ -65,7 +59,7 @@
 body {
    background-color: var(--color-bg);
    color: var(--color-text);
-   font-family: var(--font-stack);
+   font-family: var(--font-stack-b);
    font-size: var(--text-base);
    font-weight: 500;
    line-height: var(--leading-body);
@@ -78,8 +72,8 @@ h2 {
    line-height: var(--leading-heading);
 }
 
-h1 { font-size: var(--text-h1); letter-spacing: -0.02em; }
-h2 { font-size: var(--text-h2); letter-spacing: -0.01em; }
+h1 { font-size: var(--text-h1); letter-spacing: -0.02em; font-family: var(--font-stack-h); }
+h2 { font-size: var(--text-h2); letter-spacing: -0.01em; font-family: var(--font-stack-b); }
 
 p { margin-bottom: var(--space-md); }
 p:last-child { margin-bottom: 0; }
@@ -119,8 +113,26 @@ main {
 
 /* ==========================
    5. HEADER
-   (The quiz has no header. The start screen's hero text lives here.)
    ========================== */
+.image-banner {
+    width: 100%;
+    height: 10vh;
+    background-image: url('/images/pianobanner.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+}
+
 .hero .big {
    font-size: 4rem;
    line-height: 1;
@@ -134,7 +146,6 @@ main {
 
 /* ==========================
    6. SECTIONS
-   (The three screens: start, quiz, result)
    ========================== */
 .card {
    background-color: var(--color-surface);
@@ -144,9 +155,59 @@ main {
    padding: var(--space-lg);
 }
 
+.intro {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+   gap: var(--space-xl);
+   align-items: center;
+   padding: var(--space-xl);
+}
+
+.intro > * { min-width: 0; }
+
+.intro-text h2 {
+   margin-top: var(--space-lg);
+}
+
+.lead {
+   font-size: 1.2rem;
+   color: var(--color-text);
+}
+
+.members {
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--space-sm);
+   list-style: none;
+   margin-bottom: var(--space-md);
+}
+
+.members li {
+   background-color: var(--color-highlight);
+   color: #1b1530;
+   border: 2px solid var(--color-line);
+   border-radius: 99px;
+   padding: 0.125rem 0.875rem;
+   font-weight: 800;
+}
+
+.steps {
+   margin: 0 0 var(--space-lg) var(--space-lg);
+}
+
+.intro-image img {
+   border: var(--border);
+   border-radius: var(--radius-md);
+}
+
+.intro-image figcaption {
+   font-size: 0.9rem;
+   color: var(--color-muted);
+   margin-top: var(--space-sm);
+}
+
 /* ==========================
    7. FORMS
-   (The answer choices act as the quiz's inputs)
    ========================== */
 .options {
    display: grid;
@@ -215,9 +276,15 @@ main {
    font-size: 0.95rem;
 }
 
+.home-link {
+   display: inline-block;
+   color: var(--color-muted);
+   font-size: 0.95rem;
+   margin-bottom: var(--space-md);
+}
+
 /* ==========================
    9. PROGRESS
-   (Takes the place of the Search section: progress bar, question count, back link)
    ========================== */
 .progress {
    height: 14px;
@@ -246,7 +313,6 @@ main {
 
 /* ==========================
    10. CARDS
-   (Contents of the result card: emoji, title, match bars)
    ========================== */
 .result .emoji {
    font-size: 5rem;
@@ -311,4 +377,30 @@ main {
 
 @media (prefers-reduced-motion: reduce) {
    * { transition: none !important; }
+}
+
+/* ==========================
+   13. POPUP
+   ========================== */
+.popup {
+   margin: auto;
+   max-width: min(90%, 28rem);
+   padding: var(--space-md);
+   background-color: var(--color-surface);
+   color: var(--color-text);
+   border: var(--border);
+   border-radius: var(--radius-lg);
+   box-shadow: var(--shadow-card);
+   text-align: center;
+}
+
+.popup::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.popup img {
+   width: 100%;
+   height: auto;
+   border-radius: var(--radius-md);
+   margin-bottom: var(--space-md);
 }

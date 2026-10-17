@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Which houseplant are you?</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Which houseplant are you?</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
+    <header class="image-banner">
+        <span class="visually-hidden">Banner Image</span>
+    </header>
+
 <main>
-  <section id="start" class="card hero">
-    <div class="big" aria-hidden="true">🪴</div>
-    <h1>Which houseplant are you?</h1>
-    <p>Five questions, one leafy verdict!</p>
-    <button class="btn" id="startBtn">Find my plant now</button>
-  </section>
+  <section class="card hero intro">
+    <div class="intro-text">
+      <h1>Who's Your KPOP Bias?</h1>
+      <p class="lead">Five questions, one verdict. Find out which member of the girl-group ILLIT best fits your taste in this quick personality quiz!</p>
 
-  <section id="quiz" class="card" hidden>
-    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="bar"></i></div>
-    <div class="count" id="count"></div>
-    <h2 id="question" tabindex="-1"></h2>
-    <div class="options" id="options"></div>
-    <div class="nav"><button class="link" id="backBtn">Back</button></div>
-  </section>
+      <h2>Never heard of ILLIT?</h2>
+      <p>ILLIT is a five-member K-pop girl group that debuted in 2024 under Belift Lab, a HYBE label. This quiz is made for fans and for anyone interested in supporting a new group.</p>
+      <ul class="members">
+        <li>Yunah</li>
+        <li>Minju</li>
+        <li>Moka</li>
+        <li>Wonhee</li>
+        <li>Iroha</li>
+      </ul>
 
-  <section id="result" class="card result" hidden aria-live="polite">
-    <div class="emoji" id="rEmoji" aria-hidden="true"></div>
-    <h2 id="rTitle" tabindex="-1"></h2>
-    <p class="tag" id="rTag"></p>
-    <p id="rText"></p>
-    <div class="bars" id="bars"></div>
-    <div class="row">
-      <button class="btn" id="retryBtn">Take quiz again</button>
-      <button class="btn alt" id="copyBtn">Copy my result</button>
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Answer five quick questions.</li>
+        <li>Each answer adds points toward a respective member.</li>
+        <li>The member with the most points is your perfect match!</li>
+      </ol>
+
+      <a class="btn" href="start.html">Continue to the Quiz Now</a>
     </div>
+
+    <figure class="intro-image">
+      <img src="images/illit_backs.jpeg" alt="A group of 5 girls in a line facing away from the camera.">
+      <figcaption>A picture of the girl group Illit.</figcaption>
+    </figure>
   </section>
 </main>
 
-<script src="js/app.js"></script>
 </body>
+
 </html>

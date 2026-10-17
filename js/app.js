@@ -11,30 +11,30 @@ const OUTCOMES = {
 
 const QUESTIONS = [
   { q:"It's Saturday morning. What's the plan?", a:[
-    { t:"Sleep in, then do absolutely nothing", p:{cactus:2, pothos:1} },
-    { t:"Farmers market, then brunch with friends", p:{pothos:2, monstera:1} },
-    { t:"A new project I've been itching to start", p:{monstera:2, cactus:1} },
-    { t:"A quiet coffee and a very good book", p:{orchid:2, cactus:1} } ]},
+    { t:"Sleep in, then do absolutely nothing", p:{Minju:2, Wonhee:1} },
+    { t:"Farmers market, then brunch with friends", p:{Yunah:2, Iroha:1} },
+    { t:"A new project I've been itching to start", p:{Iroha:2, Yunah:1} },
+    { t:"A quiet coffee and a very good book", p:{Moka:2, Minju:1} } ]},
   { q:"Pick a group-chat role:", a:[
-    { t:"The one who replies three days later", p:{cactus:2} },
-    { t:"The one who plans everything", p:{monstera:2, orchid:1} },
-    { t:"The one who sends memes constantly", p:{pothos:2} },
-    { t:"The one with the perfectly worded take", p:{orchid:2} } ]},
+    { t:"The one who replies three days later", p:{Minju:2} },
+    { t:"The one who plans everything", p:{Moka:2, Yunah:1} },
+    { t:"The one who sends memes constantly", p:{Iroha:2} },
+    { t:"The one with the perfectly worded take", p:{Wonhee:2} } ]},
   { q:"Your ideal vacation:", a:[
-    { t:"Desert road trip, windows down", p:{cactus:2, monstera:1} },
-    { t:"Tropical resort with a jungle tour", p:{monstera:2, pothos:1} },
-    { t:"A cozy cabin with no itinerary", p:{pothos:2, cactus:1} },
-    { t:"A boutique hotel in a city I've researched for months", p:{orchid:2} } ]},
+    { t:"Desert road trip, windows down", p:{Minju:2, Yunah:1} },
+    { t:"Tropical resort with a jungle tour", p:{Yunah:2, Iroha:1} },
+    { t:"A cozy cabin with no itinerary", p:{Wonhee:2, Moka:1} },
+    { t:"A boutique hotel in a city I've researched for months", p:{Moka:2} } ]},
   { q:"How do you handle stress?", a:[
-    { t:"Retreat and recharge alone", p:{cactus:2, orchid:1} },
-    { t:"Talk it out with someone", p:{pothos:2} },
-    { t:"Make a plan and fix it", p:{monstera:2} },
-    { t:"Take a long bath, light a candle, reset", p:{orchid:2, pothos:1} } ]},
+    { t:"Retreat and recharge alone", p:{Minju:2, Iroha:1} },
+    { t:"Talk it out with someone", p:{Wonhee:2} },
+    { t:"Make a plan and fix it", p:{Yunah:2} },
+    { t:"Take a long bath, light a candle, reset", p:{Iroha:2, Moka:1} } ]},
   { q:"What would your friends say about you?", a:[
-    { t:"\"Surprisingly tough.\"", p:{cactus:2} },
-    { t:"\"Impossible not to notice.\"", p:{monstera:2} },
-    { t:"\"Gets along with everyone.\"", p:{pothos:2} },
-    { t:"\"Has impeccable taste.\"", p:{orchid:2} } ]}
+    { t:"\"Surprisingly tough.\"", p:{Iroha:2} },
+    { t:"\"Impossible not to notice.\"", p:{Wonhee:2} },
+    { t:"\"Gets along with everyone.\"", p:{Yunah:2} },
+    { t:"\"Has impeccable taste.\"", p:{Moka:2} } ]}
 ];
 
 /* ---------- LOGIC ---------- */
